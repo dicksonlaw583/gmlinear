@@ -412,8 +412,14 @@
 #define r2_unit
 ///r2_unit(v)
 {
+ var result;
+ if ((argument0[0] == 0) and (argument0[1] == 0)) {
+    result[@ 0] = 0;
+    result[@ 1] = 0;
+    return result;
+ }
   var factor = 1/sqrt(argument0[0]*argument0[0]+argument0[1]*argument0[1]);
-  var result;
+  
   result[0] = factor*argument0[0];
   result[1] = factor*argument0[1];
   return result;
@@ -422,6 +428,11 @@
 #define r2_unit_to
 ///r2_unit_to(v, vout)
 {
+ if ((argument0[0] == 0) and (argument0[1] == 0)) {
+    argument1[@ 0] = 0;
+    argument1[@ 1] = 0;
+    return argument1;
+ }
   var factor = 1/sqrt(argument0[0]*argument0[0]+argument0[1]*argument0[1]);
   argument1[@ 0] = factor*argument0[0];
   argument1[@ 1] = factor*argument0[1];
@@ -805,8 +816,14 @@
 #define r3_unit
 ///r3_unit(v)
 {
+ var result;
+ if ((argument0[0] == 0) and (argument0[1] == 0) and (argument0[2] == 0)) {
+    result[@ 0] = 0;
+    result[@ 1] = 0;
+    result[@ 2] = 0;
+    return result;
+ }
   var factor = 1/sqrt(argument0[0]*argument0[0]+argument0[1]*argument0[1]+argument0[2]*argument0[2]);
-  var result;
   result[0] = factor*argument0[0];
   result[1] = factor*argument0[1];
   result[2] = factor*argument0[2];
@@ -816,6 +833,12 @@
 #define r3_unit_to
 ///r3_unit_to(v, vout)
 {
+  if ((argument0[0] == 0) and (argument0[1] == 0) and (argument0[2] == 0)) {
+    argument1[@ 0] = 0;
+    argument1[@ 1] = 0;
+    argument1[@ 2] = 0;
+    return argument1;
+  }
   var factor = 1/sqrt(argument0[0]*argument0[0]+argument0[1]*argument0[1]+argument0[2]*argument0[2]);
   argument1[@ 0] = factor*argument0[0];
   argument1[@ 1] = factor*argument0[1];
@@ -1247,8 +1270,15 @@
 #define r4_unit
 ///r4_unit(v)
 {
-  var factor = 1/sqrt(argument0[0]*argument0[0]+argument0[1]*argument0[1]+argument0[2]*argument0[2]+argument0[3]*argument0[3]);
   var result;
+  if ((argument0[0] == 0) and (argument0[1] == 0) and (argument0[2] == 0) and (argument0[3] == 0)) {
+    result[@ 0] = 0;
+    result[@ 1] = 0;
+    result[@ 2] = 0;
+    result[@ 3] = 0;
+    return result;
+  }
+  var factor = 1/sqrt(argument0[0]*argument0[0]+argument0[1]*argument0[1]+argument0[2]*argument0[2]+argument0[3]*argument0[3]);
   result[0] = factor*argument0[0];
   result[1] = factor*argument0[1];
   result[2] = factor*argument0[2];
@@ -1259,6 +1289,13 @@
 #define r4_unit_to
 ///r4_unit_to(v, vout)
 {
+  if ((argument0[0] == 0) and (argument0[1] == 0) and (argument0[2] == 0) and (argument0[3] == 0)) {
+    argument1[@ 0] = 0;
+    argument1[@ 1] = 0;
+    argument1[@ 2] = 0;
+    argument1[@ 3] = 0;
+    return argument1;
+  }
   var factor = 1/sqrt(argument0[0]*argument0[0]+argument0[1]*argument0[1]+argument0[2]*argument0[2]+argument0[3]*argument0[3]);
   argument1[@ 0] = factor*argument0[0];
   argument1[@ 1] = factor*argument0[1];
@@ -1568,10 +1605,16 @@
   for (var i = 0; i < v_dim; i++) {
     factor += argument0[i]*argument0[i];
   }
-  factor = 1/sqrt(factor);
   var result;
-  for (var i = 0; i < v_dim; i++) {
-    result[i] = factor*argument0[i];
+  if (factor == 0) {
+    for (var i = 0; i < v_dim; i++) {
+      result[i] = 0;
+    }
+  } else {
+    factor = 1/sqrt(factor);
+    for (var i = 0; i < v_dim; i++) {
+      result[i] = factor*argument0[i];
+    }
   }
   return result;
 }
@@ -1584,9 +1627,15 @@
   for (var i = 0; i < v_dim; i++) {
     factor += argument0[i]*argument0[i];
   }
-  factor = 1/sqrt(factor);
-  for (var i = 0; i < v_dim; i++) {
-    argument1[@ i] = factor*argument0[i];
+  if (factor == 0) {
+    for (var i = 0; i < v_dim; i++) {
+      argument1[@ i] = 0;
+    }
+  } else {
+    factor = 1/sqrt(factor);
+    for (var i = 0; i < v_dim; i++) {
+      argument1[@ i] = factor*argument0[i];
+    }
   }
   return argument1;
 }
