@@ -413,9 +413,9 @@
 ///r2_unit(v)
 {
  var result;
- if ((argument0[0] == 0) and (argument0[1] == 0)) {
-    result[@ 0] = 0;
-    result[@ 1] = 0;
+ if ((argument0[0] == 0) && (argument0[1] == 0)) {
+    result[0] = 0;
+    result[1] = 0;
     return result;
  }
   var factor = 1/sqrt(argument0[0]*argument0[0]+argument0[1]*argument0[1]);
@@ -428,7 +428,7 @@
 #define r2_unit_to
 ///r2_unit_to(v, vout)
 {
- if ((argument0[0] == 0) and (argument0[1] == 0)) {
+ if ((argument0[0] == 0) && (argument0[1] == 0)) {
     argument1[@ 0] = 0;
     argument1[@ 1] = 0;
     return argument1;
@@ -817,10 +817,10 @@
 ///r3_unit(v)
 {
  var result;
- if ((argument0[0] == 0) and (argument0[1] == 0) and (argument0[2] == 0)) {
-    result[@ 0] = 0;
-    result[@ 1] = 0;
-    result[@ 2] = 0;
+ if ((argument0[0] == 0) && (argument0[1] == 0) && (argument0[2] == 0)) {
+    result[0] = 0;
+    result[1] = 0;
+    result[2] = 0;
     return result;
  }
   var factor = 1/sqrt(argument0[0]*argument0[0]+argument0[1]*argument0[1]+argument0[2]*argument0[2]);
@@ -833,7 +833,7 @@
 #define r3_unit_to
 ///r3_unit_to(v, vout)
 {
-  if ((argument0[0] == 0) and (argument0[1] == 0) and (argument0[2] == 0)) {
+  if ((argument0[0] == 0) && (argument0[1] == 0) && (argument0[2] == 0)) {
     argument1[@ 0] = 0;
     argument1[@ 1] = 0;
     argument1[@ 2] = 0;
@@ -1271,11 +1271,11 @@
 ///r4_unit(v)
 {
   var result;
-  if ((argument0[0] == 0) and (argument0[1] == 0) and (argument0[2] == 0) and (argument0[3] == 0)) {
-    result[@ 0] = 0;
-    result[@ 1] = 0;
-    result[@ 2] = 0;
-    result[@ 3] = 0;
+  if ((argument0[0] == 0) && (argument0[1] == 0) && (argument0[2] == 0) && (argument0[3] == 0)) {
+    result[0] = 0;
+    result[1] = 0;
+    result[2] = 0;
+    result[3] = 0;
     return result;
   }
   var factor = 1/sqrt(argument0[0]*argument0[0]+argument0[1]*argument0[1]+argument0[2]*argument0[2]+argument0[3]*argument0[3]);
@@ -1289,7 +1289,7 @@
 #define r4_unit_to
 ///r4_unit_to(v, vout)
 {
-  if ((argument0[0] == 0) and (argument0[1] == 0) and (argument0[2] == 0) and (argument0[3] == 0)) {
+  if ((argument0[0] == 0) && (argument0[1] == 0) && (argument0[2] == 0) && (argument0[3] == 0)) {
     argument1[@ 0] = 0;
     argument1[@ 1] = 0;
     argument1[@ 2] = 0;
