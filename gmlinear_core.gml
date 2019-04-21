@@ -419,7 +419,7 @@
     return result;
  }
   var factor = 1/sqrt(argument0[0]*argument0[0]+argument0[1]*argument0[1]);
-  
+
   result[0] = factor*argument0[0];
   result[1] = factor*argument0[1];
   return result;
@@ -1547,7 +1547,7 @@
 #define rn_subtract
 ///rn_subtract(v1, v2)
 {
-  var v_dim = array_length_1d(argument0);  
+  var v_dim = array_length_1d(argument0);
   var result;
   for (var i = 0; i < v_dim; i++) {
     result[i] = argument0[i]-argument1[i];
@@ -2073,7 +2073,7 @@
 }
 
 #define r22_invert_to
-///r22_invert_to(M)
+///r22_invert_to(M, Mout)
 {
   var a00 = argument0[0, 0],
       a01 = argument0[0, 1],
@@ -2673,7 +2673,7 @@
 }
 
 #define r44_clone_to
-///r44_clone(M, Mout)
+///r44_clone_to(M, Mout)
 {
   argument1[@ 0, 0] = argument0[0, 0];
   argument1[@ 0, 1] = argument0[0, 1];
@@ -3875,7 +3875,7 @@
 }
 
 #define rnn_transform
-///rmn_transform(M, v)
+///rnn_transform(M, v)
 {
   var result;
   var n = array_height_2d(argument0);
@@ -3889,7 +3889,7 @@
 }
 
 #define rnn_transform_to
-///rmn_transform_to(M, v, vout)
+///rnn_transform_to(M, v, vout)
 {
   var result;
   var n = array_height_2d(argument0);
@@ -4167,4 +4167,3 @@
   buffer_delete(buffer);
   return argument2;
 }
-
